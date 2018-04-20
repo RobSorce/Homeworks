@@ -8,4 +8,4 @@ Homework 3 repo
      the obstacles and ...
   3­ ... creates an image using OpenCV showing the laser data, highlighting the 
      nearest obstacle point with a red circle.
-     The resulting image should look like this:
+
