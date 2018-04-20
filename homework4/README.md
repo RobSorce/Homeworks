@@ -1,13 +1,18 @@
-# Homework2
-Homework 2 repo
+# Homework Actionlib
+Homework 4 repo
 
-- Write a ros node that writes in a text
-format the 2D location of the laser
-(x,y,theta) when laser messages
-arrive, and the timestamp
-- FORMAT:
-- One line per message
-- LASER
-<timestamp.sec>.<timestamp.usec>
-<laser pose w.r.t. odom frame
-(x,y,theta)>
+Consider the action of moving the robot forward for a certain distance with a 
+desired speed.
+
+● Define an ad­hoc ROS action:
+  •Goal: desired_speed, distance (float64)
+  •Result: odom_pose (nav_msgs/Odometry) 
+  •Feedback: empty 
+  
+● Implement a SimpleActionClient that requests the execution of the action, 
+  providing the desired speed and distance.
+  
+● Implement a SimpleActionServer that:
+  •Receives the desired speed and distance values
+  •Executes the forward motion of the robot until the requested traveled distance is reached
+  •Returns as result the robot odometry pose at the end of the execution
