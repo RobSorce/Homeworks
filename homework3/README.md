@@ -1,5 +1,5 @@
 # Homework ROS + OpenCV
-Homework 3 repo
+Homework 3 
 
 ● Run the STAGE simulator
 ● Write a node that:
