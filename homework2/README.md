@@ -1,5 +1,4 @@
 # Homework2
-Homework 2 repo
 
 - Write a ros node that writes in a text
 format the 2D location of the laser
