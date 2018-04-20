@@ -1,7 +1,7 @@
-#include "ros/ros.h"
-#include "std_msgs/Float32.h"
-#include "sensor_msgs/LaserScan.h"
-#include "std_msgs/String.h"
+#include <ros/ros.h>
+#include <std_msgs/Float32.h>
+#include <sensor_msgs/LaserScan.h>
+#include <std_msgs/String.h>
 #include <sstream>
 
   void chatterCallback(const sensor_msgs::LaserScan::ConstPtr& msg, ros::Publisher pub){
@@ -11,7 +11,7 @@
     //trovo il minimo di msg->ranges
     float min = msg->ranges[0];
 
-    int dimArray = msg->ranges.size(); 
+    int dimArray = msg->ranges.size();
     for(int i = 0; i <= dimArray-1; i++){
       if (msg->ranges[i] < min) {
         min = msg->ranges[i];
