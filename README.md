@@ -1,2 +1,2 @@
-# Homeworks
-Lab IA Homeworks repo
+# Homeworks ROS
+Lab AI Homeworks repo
