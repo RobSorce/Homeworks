@@ -1,5 +1,5 @@
 # Homework1
-Homework 1 repo
+Homework 1
 
 
 ● Run the STAGE simulator
