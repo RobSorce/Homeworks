@@ -1,13 +1,11 @@
-# Homework2
-Homework 2 repo
+# Homework ROS + OpenCV
+Homework 3 repo
 
-- Write a ros node that writes in a text
-format the 2D location of the laser
-(x,y,theta) when laser messages
-arrive, and the timestamp
-- FORMAT:
-- One line per message
-- LASER
-<timestamp.sec>.<timestamp.usec>
-<laser pose w.r.t. odom frame
-(x,y,theta)>
+● Run the STAGE simulator
+● Write a node that:
+  1­  subscribes the /base_scan topic and ...
+  2­ ... for each incoming LaserScan message computes the minimum distance from 
+     the obstacles and ...
+  3­ ... creates an image using OpenCV showing the laser data, highlighting the 
+     nearest obstacle point with a red circle.
+     The resulting image should look like this:
