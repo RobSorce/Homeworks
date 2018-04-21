@@ -16,14 +16,9 @@ protected:
   homework4::Homework4Result result_;
 
   ros::Subscriber odom_subscriber;
-  bool success;
-  bool odom_set;
-  bool preempted;
-  float desired_speed;
-  float distance_moved;
-  float x;
-  float y;
-  float z;
+  bool success, odometry, preempted;
+  float desired_speed, distance_moved;
+  float x, y, z;
 
 public:
 
@@ -32,7 +27,7 @@ public:
     action_name_(name)
   {
     success = false;
-		odom_set = false;
+		odometry = false;
 		distance_moved = -1.0;
     odom_subscriber = nh_.subscribe<nav_msgs::Odometry>("odom", 10, &Homework4Action::Callback, this);
     as_.start();
@@ -43,17 +38,19 @@ public:
   }
 
   void Callback(const nav_msgs::Odometry::ConstPtr& msg){
-    float actual_x = msg->pose.pose.position.x;
-    float actual_y = msg->pose.pose.position.y;
-    float actual_z = msg->pose.pose.position.z;
-    if(!odom_set) {
-      x = actual_x;
-      y = actual_y;
-      z = actual_z;
-      odom_set = true;
+    float current_x = msg->pose.pose.position.x;
+    float current_y = msg->pose.pose.position.y;
+    float current_z = msg->pose.pose.position.z;
+
+    if(!odometry) {
+      x = current_x;
+      y = current_y;
+      z = current_z;
+      
+      odometry = true;
     }
     else if(distance_moved >= 0){
-      if(sqrt(pow(actual_x-x,2) + pow(actual_y-y,2) + pow(actual_z-z,2)) >= distance_moved) {
+      if(sqrt(pow(current_x-x,2) + pow(current_y-y,2) + pow(current_z-z,2)) >= distance_moved) {
         success = true;
         result_.odom_pose = *msg;
       }
@@ -103,7 +100,7 @@ public:
       as_.setSucceeded(result_);
     }
     success = false;
-		odom_set = false;
+		odometry = false;
   }
 
 
