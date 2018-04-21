@@ -1,13 +1,16 @@
-# Homework2
-Homework 2 repo
+# Homework5
+Homework PCL
 
-- Write a ros node that writes in a text
-format the 2D location of the laser
-(x,y,theta) when laser messages
-arrive, and the timestamp
-- FORMAT:
-- One line per message
-- LASER
-<timestamp.sec>.<timestamp.usec>
-<laser pose w.r.t. odom frame
-(x,y,theta)>
+● Kinect point cloud filtering and visualization
+Implement a ROS node that:
+
+● Subscribes on the kinect /cloud topic
+
+● Convert the incoming sensor_msgs/PointCloud2 messages in the pcl::PointCloud 
+data structure
+
+● Apply a voxelization in order to reduce the dimension of the cloud
+ 
+● Filter the cloud in order to remove points outside a specified range
+
+● Visualize the resulting point cloud using the PCL viewer
